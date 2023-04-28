@@ -1,0 +1,15 @@
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.csproj.AssemblyReference.cache
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.AssemblyInfoInputs.cache
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.AssemblyInfo.cs
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.csproj.CoreCompileInputs.cache
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\bin\Debug\net6.0\mis-221-pa-5-ncraig02.exe
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\bin\Debug\net6.0\mis-221-pa-5-ncraig02.deps.json
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\bin\Debug\net6.0\mis-221-pa-5-ncraig02.runtimeconfig.json
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\bin\Debug\net6.0\mis-221-pa-5-ncraig02.dll
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\bin\Debug\net6.0\mis-221-pa-5-ncraig02.pdb
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.dll
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\refint\mis-221-pa-5-ncraig02.dll
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.pdb
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\mis-221-pa-5-ncraig02.genruntimeconfig.cache
+C:\Users\Nicqu\source\repos\221\PA5\mis-221-pa-5-ncraig02\obj\Debug\net6.0\ref\mis-221-pa-5-ncraig02.dll
