@@ -10,10 +10,10 @@ DisplayMenu();
     System.Console.WriteLine(@"
      ░█▀▀░▀█▀░█▀▀░█░█░▀█▀░▀█▀░█▀█░█▀▀░░░▀█▀░█▀▄░▀█▀░█▄█░░░█▀▀░▀█▀░▀█▀░█▀█░█▀▀░█▀▀░█▀▀ 
      ░█▀▀░░█░░█░█░█▀█░░█░░░█░░█░█░█░█░░░░█░░█▀▄░░█░░█░█░░░█▀▀░░█░░░█░░█░█░█▀▀░▀▀█░▀▀█
-     ░▀░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░░░░▀░░▀░▀░▀▀▀░▀░▀░░░▀░░░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀    oooooooooo
+     ░▀░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░░░░▀░░▀░▀░▀▀▀░▀░▀░░░▀░░░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀    @@@@@@@@@@
                                                                                           I ^  ^ I
                                                                                          CI @  @ ID
-                                                                                      __  I  .L  I  __        -Nicquavious-
+                                                                                      __  I  .L  I  __        One more rep!
                                                                                     _I  I \  ~~  / I  I_
                                                                                    I I  I  ______  I  I I
                                                                               []    I I__I          I__I I    []
@@ -63,7 +63,7 @@ static void Error(){
     System.Console.WriteLine("Sorry, you did not make a valid selecction. Restart the program and start over");
 }
 
-//tells each menu option to read in data from other classes
+// directs each trainer associated menu option where to pull data from
 static void trainerData(){
     Trainer[] trainers = new Trainer[100];
     TrainerUtility utility = new TrainerUtility(trainers);
@@ -72,9 +72,9 @@ static void trainerData(){
 
 
     if(trainerMenu != "3"){
-        System.Console.WriteLine("1:   Add Trainer To File");     
-        System.Console.WriteLine("2:   Update Trainer From File");
-        System.Console.WriteLine("3:   Delete Trainer From File");
+        System.Console.WriteLine("1:   Add Trainer To System");     
+        System.Console.WriteLine("2:   Update Trainer From System");
+        System.Console.WriteLine("3:   Delete Trainer From System");
         trainerMenu = Console.ReadLine();
     }
 
@@ -102,8 +102,40 @@ static void trainerData(){
 
 }
 
-
+// directs each listing associated menu option where to pull data from 
 static void listingData(){
+    Listing[] listings = new Listing[100];
+    ListingUtility utility = new ListingUtility(listings);
+    ListingReport report = new ListingReport(listings);
+    string listingMenu = Console.ReadLine();
+
+    if(listingMenu != "3"){
+        System.Console.WriteLine("1:   Add Listing To System");     
+        System.Console.WriteLine("2:   Update Listing From System");
+        System.Console.WriteLine("3:   Delete Listing From System");
+        listingMenu = Console.ReadLine();
+    }
+
+    
+    if(listingMenu == "1"){
+        utility.GetAllListingsFromFile();
+        report.PrintAllListingsFromFile();
+        utility.AddListing();
+        report.PrintAllListingsFromFile();
+    }
+    else if(listingMenu == "2"){
+        utility.GetAllListingsFromFile();
+        report.PrintAllListingsFromFile();
+        utility.UpdateListing();
+        report.PrintAllListingsFromFile();
+    }
+    else if(listingMenu == "3"){
+        utility.GetAllListingsFromFile();
+        report.PrintAllListingsFromFile();
+        utility.DeleteLisitng();
+        report.PrintAllListingsFromFile();
+    }
+    else Error();
 
 }
 

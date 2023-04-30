@@ -9,11 +9,7 @@ namespace mis_221_pa_5_ncraig02
         private string trainerEmail; 
         private string focus;
         private bool live;
-        private bool editTrainerID;
-
-        // 1 count variable for the entire class variable
-        static private int IDcount;
-
+        static private int editTrainerID;
 
         // no arg constructor
         public Trainer() 
