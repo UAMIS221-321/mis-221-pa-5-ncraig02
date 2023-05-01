@@ -12,6 +12,8 @@ namespace mis_221_pa_5_ncraig02
             this.listings = listings;
         }
 
+
+        // store count
         static public void SetCount(int count){
             ListingUtility.count = count;
         }
@@ -24,6 +26,7 @@ namespace mis_221_pa_5_ncraig02
             ListingUtility.count++;
         }
 
+        // read in data from file
         public void GetAllListingsFromFile(){
             // open file
             StreamReader inFile = new StreamReader("listing.txt");

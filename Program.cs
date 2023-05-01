@@ -103,7 +103,7 @@ static void trainerData(){
 }
 
 // directs each listing associated menu option where to pull data from 
-static void listingData(){
+static void listingData(Trainer[] trainers){
     Listing[] listings = new Listing[100];
     ListingUtility utility = new ListingUtility(listings);
     ListingReport report = new ListingReport(listings);
@@ -116,11 +116,11 @@ static void listingData(){
         listingMenu = Console.ReadLine();
     }
 
-    
+
     if(listingMenu == "1"){
         utility.GetAllListingsFromFile();
         report.PrintAllListingsFromFile();
-        utility.AddListing();
+        utility.AddListing(trainers);
         report.PrintAllListingsFromFile();
     }
     else if(listingMenu == "2"){
@@ -140,6 +140,36 @@ static void listingData(){
 }
 
 static void bookingData(){
+    Booking[] bookings = new Booking[100];
+    BookingUtility utility = new BookingUtility(bookings);
+    BookingReport report = new BookingReport(listings);
+    string bookingMenu = Console.ReadLine();
+
+    if(bookingMenu != "3"){
+        System.Console.WriteLine("1:   View available training session");     
+        System.Console.WriteLine("2:   Book a session");
+        System.Console.WriteLine("3:   Update session");
+        bookingMenu = Console.ReadLine();
+    }
+
+
+    if(bookingMenu == "1"){
+        BookingReport.PrintAllAvailableSessions(listings);
+    }
+    else if(bookingMenu == "2"){
+        BookingUtility.PrintAll
+        report.PrintAllListingsFromFile();
+        utility.UpdateListing();
+        report.PrintAllListingsFromFile();
+    }
+    else if(bookingMenu == "3"){
+        utility.GetAllListingsFromFile();
+        report.PrintAllListingsFromFile();
+        utility.DeleteLisitng();
+        report.PrintAllListingsFromFile();
+    }
+    else Error();
+    
 
 }
 
