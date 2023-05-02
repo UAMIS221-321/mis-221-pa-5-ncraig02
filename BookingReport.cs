@@ -20,7 +20,7 @@ namespace mis_221_pa_5_ncraig02
             }
         }
 
-        public static void PrintAllBookings(Booking [] bookings){
+        public void PrintAllBookings(Booking [] bookings){
             for(int i = 0; i < Booking.GetCount(); i++){
               
                  System.Console.WriteLine(bookings[i].ToString());

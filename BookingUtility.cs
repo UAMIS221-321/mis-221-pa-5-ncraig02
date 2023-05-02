@@ -43,7 +43,7 @@ namespace mis_221_pa_5_ncraig02
         }
 
         private void SaveBooking(Booking [] bookings){
-            StreamWriter outFile = new StreamWriter("transactions.txt");
+            StreamWriter outFile = new StreamWriter("transactions.txt", true);
 
             for(int i = 0; i < Booking.GetCount(); i ++){
                 outFile.WriteLine(bookings[i].ToFile());
@@ -53,6 +53,7 @@ namespace mis_221_pa_5_ncraig02
         }
 
         public int Find(int searchVal,Listing [] listings){
+            //Console.WriteLine($"Count: {ListingUtility.GetCount()}");
             for(int i = 0; i < ListingUtility.GetCount(); i++){
                 if(listings[i].GetListingId() == searchVal){
                     return i;
@@ -72,14 +73,13 @@ namespace mis_221_pa_5_ncraig02
         }
 
         public void BookSession(Listing [] listings, Trainer [] trainers){
-            
             System.Console.WriteLine("Please enter the Listing ID:");
             int searchVal = int.Parse(Console.ReadLine());
             int foundIndex = Find(searchVal, listings);
 
             if(foundIndex != -1){
             Booking newSession = new Booking();
-            newSession.SetSessionID(BookingUtility.GetCount());
+            newSession.SetSessionID(Booking.GetCount()+1);
             System.Console.WriteLine("Please enter the customer name:");
             newSession.SetCustomerName(Console.ReadLine());
             System.Console.WriteLine("Please enter the customer email:");

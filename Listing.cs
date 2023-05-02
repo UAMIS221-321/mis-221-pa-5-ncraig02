@@ -24,7 +24,7 @@ namespace mis_221_pa_5_ncraig02
 
 
         //arg constructor
-        public Listing( int trainerID, string trainerName, int listingID, string focus, string sessionDate, string sessionTime, string sessionCost, bool sessionOpen, bool live){
+        public Listing( int listingID, string trainerName, int trainerID, string focus, string sessionDate, string sessionTime, string sessionCost, bool sessionOpen, bool live){
             this.listingID = listingID;
             listingID++;
             this.trainerName = trainerName;

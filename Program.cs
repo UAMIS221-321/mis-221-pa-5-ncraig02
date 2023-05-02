@@ -22,36 +22,51 @@ DisplayMenu(listings, trainers);
                                                                             [ ]    I___I__\      /__I___I    [ ]
                                                                              []    (______)      (_______)   []"   );
 
-    System.Console.WriteLine("Hi! Welcome to Fighting Trim Fitness, where we specialize in body creations. Press any key to view our main menu");
+    System.Console.WriteLine("Hi! Welcome to Fighting Trim Fitness, where we specialize in body creations.");
+    //string menu = Console.ReadLine();
+    System.Console.WriteLine("\n1:   Manage trainer data");     
+    System.Console.WriteLine("2:   Manage listing data");
+    System.Console.WriteLine("3:   Manage customer booking data");
+    System.Console.WriteLine("4:   Run reports");
+    System.Console.WriteLine("5:   Exit Application");
     string menu = Console.ReadLine();
+    while(menu != "1" && menu != "2" && menu!= "3" &&menu!="4"&&menu!="5"){
+        System.Console.WriteLine("Please enter number 1-5");
+        System.Console.WriteLine("\n1:   Manage trainer data");     
+        System.Console.WriteLine("2:   Manage listing data");
+        System.Console.WriteLine("3:   Manage customer booking data");
+        System.Console.WriteLine("4:   Run reports");
+        System.Console.WriteLine("5:   Exit Application");
+        menu = Console.ReadLine();
+    }
 
+    while(menu != "5"){
+        if(menu == "1"){
+        trainerData();
+        }
+        else if(menu == "2"){
+            listingData(trainers, listings);
+        }
+        else if(menu == "3"){
+            bookingData(listings, trainers);
+        }
+        else if(menu == "4"){
+            runReport();
+        }
+        else if(menu == "5"){
+            Exit();
+        }
+        else Error();
+        System.Console.WriteLine("Please enter number 1-5");
+        System.Console.WriteLine("\n1:   Manage trainer data");     
+        System.Console.WriteLine("2:   Manage listing data");
+        System.Console.WriteLine("3:   Manage customer booking data");
+        System.Console.WriteLine("4:   Run reports");
+        System.Console.WriteLine("5:   Exit Application");
+        menu = Console.ReadLine();
+    }
 
     
-    if(menu !="5"){
-            System.Console.WriteLine("1:   Manage trainer data");     
-            System.Console.WriteLine("2:   Manage listing data");
-            System.Console.WriteLine("3:   Manage customer booking data");
-            System.Console.WriteLine("4:   Run reports");
-            System.Console.WriteLine("5:   Exit Application");
-            menu = Console.ReadLine();
-    }
-
-    if(menu == "1"){
-        trainerData();
-    }
-    else if(menu == "2"){
-        listingData(trainers, listings);
-    }
-    else if(menu == "3"){
-        bookingData(listings, trainers);
-    }
-    else if(menu == "4"){
-        runReport();
-    }
-    else if(menu == "5"){
-        Exit();
-    }
-    else Error();
  }
 
 //  method to exit application
@@ -62,7 +77,7 @@ static void Exit(){
 
 // method to give the user an error when an option outside of the menu range is selected
 static void Error(){
-    System.Console.WriteLine("Sorry, you did not make a valid selecction. Restart the program and start over");
+    System.Console.WriteLine("Sorry, you did not make a valid selecction.");
 }
 
 // directs each trainer associated menu option where to pull data from
@@ -70,7 +85,7 @@ static void trainerData(){
     Trainer[] trainers = new Trainer[100];
     TrainerUtility utility = new TrainerUtility(trainers);
     TrainerReport report = new TrainerReport(trainers);
-    string trainerMenu = Console.ReadLine();
+    string trainerMenu = "";
 
 
     if(trainerMenu != "3"){
@@ -110,7 +125,7 @@ static void listingData(Trainer[] trainers, Listing[] listings){
     // Trainer[] trainers1 = new Trainer[100];
     ListingUtility utility = new ListingUtility(listings);
     ListingReport report = new ListingReport(listings);
-    string listingMenu = Console.ReadLine();
+    string listingMenu = "";
 
     if(listingMenu != "3"){
         System.Console.WriteLine("1:   Add Listing To System");     
@@ -148,7 +163,8 @@ static void bookingData(Listing[] listings, Trainer[] trainers){
     BookingReport report = new BookingReport(listings, bookings);
     ListingUtility utility3 = new ListingUtility(listings);
     ListingReport report2 = new ListingReport(listings);
-    string bookingMenu = Console.ReadLine();
+    utility3.GetAllListingsFromFile();
+    string bookingMenu = "";
 
     if(bookingMenu != "3"){
         System.Console.WriteLine("1:   View available training session");     
@@ -164,7 +180,7 @@ static void bookingData(Listing[] listings, Trainer[] trainers){
     else if(bookingMenu == "2"){
         report.PrintAllAvailableSessions(listings);
         utility.BookSession(listings, trainers);
-        report2.PrintAllListingsFromFile();
+        report.PrintAllBookings(bookings);
         // utility.UpdateListing();
         
     }
@@ -183,7 +199,7 @@ static void bookingData(Listing[] listings, Trainer[] trainers){
 static void runReport(){
     Reports[] reports = new Reports[100];
     ReportUtility utility = new ReportUtility(reports);
-    string reportMenu = Console.ReadLine();
+    string reportMenu = "";
 
     if(reportMenu != "3"){
         System.Console.WriteLine("1:   Individual Customer Sessions");     
@@ -199,7 +215,7 @@ static void runReport(){
         
         
     }
-    
+
     else if(reportMenu == "3"){
     }
     else Error();
