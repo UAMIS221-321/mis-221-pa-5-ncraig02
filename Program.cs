@@ -1,12 +1,12 @@
 ﻿using mis_221_pa_5_ncraig02;
-
+Trainer[] trainers = new Trainer[100];
+Listing[] listings = new Listing[100];
 //start main
 Console.Clear();
-DisplayMenu();
+DisplayMenu(listings, trainers);
 //end main
 
-
- static void DisplayMenu(){
+ static void DisplayMenu(Listing[] listings, Trainer[] trainers){
     System.Console.WriteLine(@"
      ░█▀▀░▀█▀░█▀▀░█░█░▀█▀░▀█▀░█▀█░█▀▀░░░▀█▀░█▀▄░▀█▀░█▄█░░░█▀▀░▀█▀░▀█▀░█▀█░█▀▀░█▀▀░█▀▀ 
      ░█▀▀░░█░░█░█░█▀█░░█░░░█░░█░█░█░█░░░░█░░█▀▄░░█░░█░█░░░█▀▀░░█░░░█░░█░█░█▀▀░▀▀█░▀▀█
@@ -25,6 +25,8 @@ DisplayMenu();
     System.Console.WriteLine("Hi! Welcome to Fighting Trim Fitness, where we specialize in body creations. Press any key to view our main menu");
     string menu = Console.ReadLine();
 
+
+    
     if(menu !="5"){
             System.Console.WriteLine("1:   Manage trainer data");     
             System.Console.WriteLine("2:   Manage listing data");
@@ -38,10 +40,10 @@ DisplayMenu();
         trainerData();
     }
     else if(menu == "2"){
-        listingData();
+        listingData(trainers, listings);
     }
     else if(menu == "3"){
-        bookingData();
+        bookingData(listings, trainers);
     }
     else if(menu == "4"){
         runReport();
@@ -103,8 +105,9 @@ static void trainerData(){
 }
 
 // directs each listing associated menu option where to pull data from 
-static void listingData(Trainer[] trainers){
-    Listing[] listings = new Listing[100];
+static void listingData(Trainer[] trainers, Listing[] listings){
+    Listing[] listing = new Listing[100];
+    // Trainer[] trainers1 = new Trainer[100];
     ListingUtility utility = new ListingUtility(listings);
     ListingReport report = new ListingReport(listings);
     string listingMenu = Console.ReadLine();
@@ -126,7 +129,7 @@ static void listingData(Trainer[] trainers){
     else if(listingMenu == "2"){
         utility.GetAllListingsFromFile();
         report.PrintAllListingsFromFile();
-        utility.UpdateListing();
+        utility.UpdateListing(listings);
         report.PrintAllListingsFromFile();
     }
     else if(listingMenu == "3"){
@@ -139,10 +142,12 @@ static void listingData(Trainer[] trainers){
 
 }
 
-static void bookingData(){
+static void bookingData(Listing[] listings, Trainer[] trainers){
     Booking[] bookings = new Booking[100];
     BookingUtility utility = new BookingUtility(bookings);
-    BookingReport report = new BookingReport(listings);
+    BookingReport report = new BookingReport(listings, bookings);
+    ListingUtility utility3 = new ListingUtility(listings);
+    ListingReport report2 = new ListingReport(listings);
     string bookingMenu = Console.ReadLine();
 
     if(bookingMenu != "3"){
@@ -154,19 +159,21 @@ static void bookingData(){
 
 
     if(bookingMenu == "1"){
-        BookingReport.PrintAllAvailableSessions(listings);
+        report.PrintAllAvailableSessions(listings);
     }
     else if(bookingMenu == "2"){
-        BookingUtility.PrintAll
-        report.PrintAllListingsFromFile();
-        utility.UpdateListing();
-        report.PrintAllListingsFromFile();
+        report.PrintAllAvailableSessions(listings);
+        utility.BookSession(listings, trainers);
+        report2.PrintAllListingsFromFile();
+        // utility.UpdateListing();
+        
     }
     else if(bookingMenu == "3"){
-        utility.GetAllListingsFromFile();
-        report.PrintAllListingsFromFile();
-        utility.DeleteLisitng();
-        report.PrintAllListingsFromFile();
+        utility3.UpdateListing(listings);
+        utility3.GetAllListingsFromFile();
+        report2.PrintAllListingsFromFile();
+        utility3.DeleteLisitng();
+        report2.PrintAllListingsFromFile();
     }
     else Error();
     
@@ -174,5 +181,29 @@ static void bookingData(){
 }
 
 static void runReport(){
+    Reports[] reports = new Reports[100];
+    ReportUtility utility = new ReportUtility(reports);
+    string reportMenu = Console.ReadLine();
+
+    if(reportMenu != "3"){
+        System.Console.WriteLine("1:   Individual Customer Sessions");     
+        System.Console.WriteLine("2:   Historical Customer Sessions");
+        System.Console.WriteLine("3:   Historical Revenue Report");
+        reportMenu = Console.ReadLine();
+    }
+
+    if(reportMenu == "1"){
+        utility.IndividualCustomerReport();
+    }
+    else if(reportMenu == "2"){
+        
+        
+    }
+    
+    else if(reportMenu == "3"){
+    }
+    else Error();
+
+
 
 }

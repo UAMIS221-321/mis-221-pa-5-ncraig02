@@ -81,7 +81,7 @@ namespace mis_221_pa_5_ncraig02
         }
 
         public override string ToString(){
-            return $"Trainer name: {trainerName}\tTrainer ID: {trainerID}\tTrainer mailing address: {mailingAddress}\tTrainer email: {trainerEmail}\tSpeciality: {focus}";
+            return $"Trainer name: {trainerName}\nTrainer ID: {trainerID}\nTrainer mailing address: {mailingAddress}\nTrainer email: {trainerEmail}\nSpeciality: {focus}\n";
         }
         
         public string ToFile(){

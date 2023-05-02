@@ -52,9 +52,9 @@ namespace mis_221_pa_5_ncraig02
             outFile.Close();
         }
 
-        public int Find(string searchVal,Listing [] listings){
+        public int Find(int searchVal,Listing [] listings){
             for(int i = 0; i < ListingUtility.GetCount(); i++){
-                if(listings[i].GetListingId() == int.Parse(searchVal)){
+                if(listings[i].GetListingId() == searchVal){
                     return i;
                 }
             }
@@ -74,7 +74,7 @@ namespace mis_221_pa_5_ncraig02
         public void BookSession(Listing [] listings, Trainer [] trainers){
             
             System.Console.WriteLine("Please enter the Listing ID:");
-            string searchVal = Console.ReadLine();
+            int searchVal = int.Parse(Console.ReadLine());
             int foundIndex = Find(searchVal, listings);
 
             if(foundIndex != -1){

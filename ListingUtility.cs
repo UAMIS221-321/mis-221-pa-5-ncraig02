@@ -2,6 +2,7 @@ namespace mis_221_pa_5_ncraig02
 {
     public class ListingUtility
     {
+        private Trainer[] trainers;        
         static int MAX_TRAINER = 100;
 
         private Listing[] listings = new Listing[MAX_TRAINER];
@@ -96,7 +97,7 @@ namespace mis_221_pa_5_ncraig02
             return -1;
         }
 
-        public void UpdateListing(){
+        public void UpdateListing(Listing[] listings){
             System.Console.WriteLine("\tEnter the listing ID you would like to update:");
             string searchVal = Console.ReadLine();
             int foundIndex = Find(searchVal);

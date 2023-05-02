@@ -11,7 +11,7 @@ namespace mis_221_pa_5_ncraig02
             this.bookings = bookings;
         }
 
-        public static void PrintAllAvailableSessions(Listing [] listings){
+        public void PrintAllAvailableSessions(Listing [] listings){
             for(int i = 0; i < ListingUtility.GetCount(); i++){
                 if(listings[i].GetLive() == true && listings[i].GetSessionOpen() == false){
                     System.Console.WriteLine(listings[i].ToString());
